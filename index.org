@@ -27,4 +27,4 @@
   #+end_src
 
 * Image
-  [[file:img/structure-chart.png][Structure Chart]]
+  [[file:img/structure-chart.png]]
