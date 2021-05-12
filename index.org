@@ -1,30 +1,16 @@
-#+TITLE: My first Org File in GitHub
+#+TITLE: My Orgmode GitHub Experiments
+
 * Preamble
-  After a bit of research, and looking at many code bases, I
-  decided that I will have my own style of publishing.
+This is my index file.  I am learning posting my org-mode
+files to GitHub.  There are plenty of tutorials and code
+bases available in GitHub.  But, I found everything
+confusing for me as I am newbie.
 
-* Lists
-  - One
-  - Two
-  - Three
-  - Four
+I decided to go step by step through my journey. I will
+maintain each task as an org file which are listed below.
 
-* Table
-  |----+----------|
-  | No | Quantity |
-  |----+----------|
-  |  1 |       34 |
-  |  2 |       69 |
-  |  3 |       98 |
-  |----+----------|
-* Code
-  #+begin_src java
-    public class HelloWorld{
-       public static void main(String[] args){
-           System.out.println("Hello World");
-       }
-    }
-  #+end_src
-
-* Image
-  [[file:img/structure-chart.png]]
+This file will not be changed for the purpose of remembering
+how I started.  Only tasks will be added to this file.  All
+the changes happening will be documented in *Tasks*.
+* Tasks
+  1. [[file:tasks/task-1.org][Task 1]]

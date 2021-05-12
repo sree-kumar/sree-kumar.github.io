@@ -1,0 +1,30 @@
+#+TITLE: My first Org File in GitHub
+* Preamble
+  After a bit of research, and looking at many code bases, I
+  decided that I will have my own style of publishing.
+
+* Lists
+  - One
+  - Two
+  - Three
+  - Four
+
+* Table
+  |----+----------|
+  | No | Quantity |
+  |----+----------|
+  |  1 |       34 |
+  |  2 |       69 |
+  |  3 |       98 |
+  |----+----------|
+* Code
+  #+begin_src java
+    public class HelloWorld{
+       public static void main(String[] args){
+           System.out.println("Hello World");
+       }
+    }
+  #+end_src
+
+* Image
+  [[file:~/tao-org/sree-kumar.github.io/img/structure-chart.png]]
