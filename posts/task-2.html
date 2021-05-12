@@ -1,0 +1,88 @@
+
+<div id="outline-container-org468412f" class="outline-2">
+<h2 id="org468412f"><span class="section-number-2">1</span> Lessons learned from Task 1</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>Org files cannot be displayed in the <b>site</b>.  They have
+to be converted into html files.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orga1b0854" class="outline-2">
+<h2 id="orga1b0854"><span class="section-number-2">2</span> Orgmode convertion</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example" id="orgdbedb13">
+C-c C-e h o 
+</pre>
+<p>
+This will export to html file.
+</p>
+
+<p>
+Since we need html files, I am going to put my files
+(hereafter) in <code>/posts/</code> directory.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd542ec1" class="outline-2">
+<h2 id="orgd542ec1"><span class="section-number-2">3</span> Plan</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>Store the org documents in <code>/org/</code> directory.</li>
+<li>Store the images in <code>/img/</code> directory.</li>
+<li>Publish the org documents to <code>/posts</code> directory.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org998888d" class="outline-2">
+<h2 id="org998888d"><span class="section-number-2">4</span> Automate</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+I have the code for automated exporting got from many
+sites.  The most simplest one looks like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #00ffff;">setq</span> org-publish-project-alist
+    '((<span style="color: #ffc1c1;">"git"</span> <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">my blog project (just a name)</span>
+       <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">Path to org files.</span>
+       <span style="color: #b0c4de;">:base-directory</span> <span style="color: #ffc1c1;">"~/tao-org/sree-kumar.github.io/org"</span>
+       <span style="color: #b0c4de;">:base-extension</span> <span style="color: #ffc1c1;">"org"</span>
+       <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">Path to Jekyll Posts</span>
+       <span style="color: #b0c4de;">:publishing-directory</span> <span style="color: #ffc1c1;">"~/tao-org/sree-kumar.github.io/posts/"</span>
+       <span style="color: #b0c4de;">:recursive</span> t
+       <span style="color: #b0c4de;">:publishing-function</span> org-html-publish-to-html
+       <span style="color: #b0c4de;">:headline-levels</span> 4
+       <span style="color: #b0c4de;">:html-extension</span> <span style="color: #ffc1c1;">"html"</span>
+       <span style="color: #b0c4de;">:body-only</span> t
+       <span style="color: #b0c4de;">:with-toc</span> nil
+       )))
+</pre>
+</div>
+
+<p>
+For the time being this code is part of my emacs file.
+But <a href="https://duncan.codes/">Duncan MacVicar</a> has self contained configuration which
+we will try at a later point of time.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf459124" class="outline-2">
+<h2 id="orgf459124"><span class="section-number-2">5</span> Current Structure</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+This file is in the <code>/org/</code> directory and running publish
+command will put it in <code>/posts/</code> directory.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge29c829" class="outline-2">
+<h2 id="orge29c829"><span class="section-number-2">6</span> Command for publishing</h2>
+<div class="outline-text-2" id="text-6">
+<pre class="example" id="org98d8558">
+C-c C-e P x &lt;project name&gt; ;; in our case git.
+</pre>
+</div>
+</div>

@@ -13,4 +13,8 @@ This file will not be changed for the purpose of remembering
 how I started.  Only tasks will be added to this file.  All
 the changes happening will be documented in *Tasks*.
 * Tasks
-  1. [[file:tasks/task-1.org][Task 1]]
+  1. [[file:tasks/task-1.org][Task 1]] (This is in */tasks/* directory)
+  2. [[file:posts/task-2.html][Task 2]] (This is in */posts/* directory)
+
+Note: This file will be always exported using ~C-c C-e h o~
+command.

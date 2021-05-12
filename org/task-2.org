@@ -1,0 +1,52 @@
+#+TITLE: Task 2
+
+* Lessons learned from Task 1
+  1. Org files cannot be displayed in the *site*.  They have
+     to be converted into html files.
+* Orgmode convertion
+  #+begin_example
+  C-c C-e h o 
+  #+end_example
+  This will export to html file.
+
+  Since we need html files, I am going to put my files
+  (hereafter) in =/posts/= directory.
+
+* Plan
+  1. Store the org documents in =/org/= directory.
+  2. Store the images in =/img/= directory.
+  3. Publish the org documents to =/posts= directory.
+* Automate
+  I have the code for automated exporting got from many
+  sites.  The most simplest one looks like this:
+  #+begin_src elisp
+  (setq org-publish-project-alist
+      '(("git" ;; my blog project (just a name)
+         ;; Path to org files.
+         :base-directory "~/tao-org/sree-kumar.github.io/org"
+         :base-extension "org"
+         ;; Path to Jekyll Posts
+         :publishing-directory "~/tao-org/sree-kumar.github.io/posts/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4
+         :html-extension "html"
+         :body-only t
+         :with-toc nil
+         )))
+  #+end_src
+
+  For the time being this code is part of my emacs file.
+  But [[https://duncan.codes/][Duncan MacVicar]] has self contained configuration which
+  we will try at a later point of time.
+  
+* Current Structure
+  This file is in the =/org/= directory and running publish
+  command will put it in =/posts/= directory.
+
+* Command for publishing
+  #+begin_example
+  C-c C-e P x <project name> ;; in our case git.
+  #+end_example
+
+  
