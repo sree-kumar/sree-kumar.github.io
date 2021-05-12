@@ -1,0 +1,75 @@
+#+LINK_HOME: ../index.html
+
+* Lessons learned from Task 2
+  1. Refresh index page is not working in my browser.  So I
+     have to add the following code in my index file at the top.
+     #+begin_example
+     #+begin_export html
+     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+     <meta http-equiv="Pragma" content="no-cache"/>
+     <meta http-equiv="Expires" content="0"/>
+     #+end_export
+     #+end_example
+
+     I know there is a better way to do that.  Once, I find
+     it, I shall document it.
+   2. I found this [[https://emacsclub.github.io/html/org_tutorial.html][cheat sheet]] from github. From that I have
+      added the code at the top.
+      #+begin_example
+      #+LINK_HOME: ../index.html
+      #+end_example
+      to create a link to the home page from this page.
+
+      Also, it has the complete documentation for
+      *html-export*:
+      #+begin_src elisp
+      require 'org-publish)
+(setq org-publish-project-alist
+      `(
+        ;; add all the components here
+        ;; *notes* - publishes org files to html
+        ("main-page"
+         :base-directory ,(concat home "org/")
+         :base-extension "org"  ; Filename suffix without dot
+         :publishing-directory ,(concat home "html/")
+         :recursive t           ; DONT include subdirectories
+         :publishing-function org-publish-org-to-html
+         :headline-levels 4             ; Just the default for this project.
+         :style "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/stylesheet.css\" />"
+         :auto-preamble t
+         :auto-sitemap t                ; generate automagically
+         :sitemap-sort-folders last
+         :sitemap-title "Main Sitemap"
+         )
+
+        ;; The meeting notes to be published
+        ("meeting-notes"
+         :base-directory ,(concat home "org/meeting-notes/")
+         :base-extension "org"
+         :publishing-directory ,(concat home "html/meeting-notes/")
+         :recursive nil
+         :publishing-function org-publish-org-to-html
+         :headline-levels 4
+         :style "<link rel=\"stylesheet\" type=\"text/css\" href=\"../../css/stylesheet.css\" />"
+         :auto-preamble t
+         :auto-sitemap t
+         :sitemap-title "Meeting Notes Directory"
+         )
+
+        ;; *static* - copies files to directories
+        ("org-static"
+         :base-directory ,(concat home "org/")
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+         :publishing-directory ,(concat home "html/")
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+
+        ;; *publish* with M-x org-publish-project RET emacsclub RET
+        ("emacsclub" :components ("main-page" "meeting-notes" "org-static"))
+        ))
+      #+end_src
+
+      I have come across this code many times, but need to
+      understand it more.
+      

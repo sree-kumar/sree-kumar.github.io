@@ -1,5 +1,9 @@
 #+TITLE: My Orgmode GitHub Experiments
-
+#+begin_export html
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+#+end_export
 * Preamble
 This is my index file.  I am learning posting my org-mode
 files to GitHub.  There are plenty of tutorials and code
@@ -15,6 +19,7 @@ the changes happening will be documented in *Tasks*.
 * Tasks
   1. [[file:tasks/task-1.org][Task 1]] (This is in */tasks/* directory)
   2. [[file:posts/task-2.html][Task 2]] (This is in */posts/* directory)
+  3. [[file:posts/task-3.html][Task 3]]
 
 Note: This file will be always exported using ~C-c C-e h o~
 command.

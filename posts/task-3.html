@@ -1,0 +1,94 @@
+
+<div id="outline-container-org582a6e8" class="outline-2">
+<h2 id="org582a6e8"><span class="section-number-2">1</span> Lessons learned from Task 2</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li><p>
+Refresh index page is not working in my browser.  So I
+have to add the following code in my index file at the top.
+</p>
+<pre class="example" id="orgef1299a">
+#+begin_export html
+&lt;meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/&gt;
+&lt;meta http-equiv="Pragma" content="no-cache"/&gt;
+&lt;meta http-equiv="Expires" content="0"/&gt;
+#+end_export
+</pre>
+
+<p>
+I know there is a better way to do that.  Once, I find
+it, I shall document it.
+</p>
+<ol class="org-ol">
+<li><p>
+I found this <a href="https://emacsclub.github.io/html/org_tutorial.html">cheat sheet</a> from github. From that I have
+added the code at the top.
+</p>
+<pre class="example" id="org012e126">
+#+LINK_HOME: ../index.html
+</pre>
+<p>
+to create a link to the home page from this page.
+</p>
+
+<p>
+Also, it has the complete documentation for
+<b>html-export</b>:
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">      require 'org-publish)
+(<span style="color: #00ffff;">setq</span> org-publish-project-alist
+      `(
+        <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">add all the components here</span>
+        <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">*notes* - publishes org files to html</span>
+        (<span style="color: #ffc1c1;">"main-page"</span>
+         <span style="color: #b0c4de;">:base-directory</span> ,(concat home <span style="color: #ffc1c1;">"org/"</span>)
+         <span style="color: #b0c4de;">:base-extension</span> <span style="color: #ffc1c1;">"org"</span>  <span style="color: #fa8072;">; </span><span style="color: #ff7f24; font-style: italic;">Filename suffix without dot</span>
+         <span style="color: #b0c4de;">:publishing-directory</span> ,(concat home <span style="color: #ffc1c1;">"html/"</span>)
+         <span style="color: #b0c4de;">:recursive</span> t           <span style="color: #fa8072;">; </span><span style="color: #ff7f24; font-style: italic;">DONT include subdirectories</span>
+         <span style="color: #b0c4de;">:publishing-function</span> org-publish-org-to-html
+         <span style="color: #b0c4de;">:headline-levels</span> 4             <span style="color: #fa8072;">; </span><span style="color: #ff7f24; font-style: italic;">Just the default for this project.</span>
+         <span style="color: #b0c4de;">:style</span> <span style="color: #ffc1c1;">"&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"../css/stylesheet.css\" /&gt;"</span>
+         <span style="color: #b0c4de;">:auto-preamble</span> t
+         <span style="color: #b0c4de;">:auto-sitemap</span> t                <span style="color: #fa8072;">; </span><span style="color: #ff7f24; font-style: italic;">generate automagically</span>
+         <span style="color: #b0c4de;">:sitemap-sort-folders</span> last
+         <span style="color: #b0c4de;">:sitemap-title</span> <span style="color: #ffc1c1;">"Main Sitemap"</span>
+         )
+
+        <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">The meeting notes to be published</span>
+        (<span style="color: #ffc1c1;">"meeting-notes"</span>
+         <span style="color: #b0c4de;">:base-directory</span> ,(concat home <span style="color: #ffc1c1;">"org/meeting-notes/"</span>)
+         <span style="color: #b0c4de;">:base-extension</span> <span style="color: #ffc1c1;">"org"</span>
+         <span style="color: #b0c4de;">:publishing-directory</span> ,(concat home <span style="color: #ffc1c1;">"html/meeting-notes/"</span>)
+         <span style="color: #b0c4de;">:recursive</span> nil
+         <span style="color: #b0c4de;">:publishing-function</span> org-publish-org-to-html
+         <span style="color: #b0c4de;">:headline-levels</span> 4
+         <span style="color: #b0c4de;">:style</span> <span style="color: #ffc1c1;">"&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"../../css/stylesheet.css\" /&gt;"</span>
+         <span style="color: #b0c4de;">:auto-preamble</span> t
+         <span style="color: #b0c4de;">:auto-sitemap</span> t
+         <span style="color: #b0c4de;">:sitemap-title</span> <span style="color: #ffc1c1;">"Meeting Notes Directory"</span>
+         )
+
+        <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">*static* - copies files to directories</span>
+        (<span style="color: #ffc1c1;">"org-static"</span>
+         <span style="color: #b0c4de;">:base-directory</span> ,(concat home <span style="color: #ffc1c1;">"org/"</span>)
+         <span style="color: #b0c4de;">:base-extension</span> <span style="color: #ffc1c1;">"css</span><span style="color: #ffc1c1; font-weight: bold;">\\</span><span style="color: #ffc1c1; font-weight: bold;">|</span><span style="color: #ffc1c1;">js</span><span style="color: #ffc1c1; font-weight: bold;">\\</span><span style="color: #ffc1c1; font-weight: bold;">|</span><span style="color: #ffc1c1;">png</span><span style="color: #ffc1c1; font-weight: bold;">\\</span><span style="color: #ffc1c1; font-weight: bold;">|</span><span style="color: #ffc1c1;">jpg</span><span style="color: #ffc1c1; font-weight: bold;">\\</span><span style="color: #ffc1c1; font-weight: bold;">|</span><span style="color: #ffc1c1;">gif</span><span style="color: #ffc1c1; font-weight: bold;">\\</span><span style="color: #ffc1c1; font-weight: bold;">|</span><span style="color: #ffc1c1;">pdf</span><span style="color: #ffc1c1; font-weight: bold;">\\</span><span style="color: #ffc1c1; font-weight: bold;">|</span><span style="color: #ffc1c1;">mp3</span><span style="color: #ffc1c1; font-weight: bold;">\\</span><span style="color: #ffc1c1; font-weight: bold;">|</span><span style="color: #ffc1c1;">ogg</span><span style="color: #ffc1c1; font-weight: bold;">\\</span><span style="color: #ffc1c1; font-weight: bold;">|</span><span style="color: #ffc1c1;">swf"</span>
+         <span style="color: #b0c4de;">:publishing-directory</span> ,(concat home <span style="color: #ffc1c1;">"html/"</span>)
+         <span style="color: #b0c4de;">:recursive</span> t
+         <span style="color: #b0c4de;">:publishing-function</span> org-publish-attachment
+         )
+
+        <span style="color: #fa8072;">;; </span><span style="color: #ff7f24; font-style: italic;">*publish* with M-x org-publish-project RET emacsclub RET</span>
+        (<span style="color: #ffc1c1;">"emacsclub"</span> <span style="color: #b0c4de;">:components</span> (<span style="color: #ffc1c1;">"main-page"</span> <span style="color: #ffc1c1;">"meeting-notes"</span> <span style="color: #ffc1c1;">"org-static"</span>))
+        ))
+</pre>
+</div>
+
+<p>
+I have come across this code many times, but need to
+understand it more.
+</p></li>
+</ol></li>
+</ol>
+</div>
+</div>
